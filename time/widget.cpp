@@ -8,6 +8,7 @@ Widget::Widget(QWidget *parent) :
     ui->setupUi(this);
     time.setHMS(0,0,0,0);
     ui->showtime->setText("00:00:00:000");
+
     timer1.start(1000);
     connect(&timer1,SIGNAL(timeout()),this,SLOT(timeout1_slot()));
 
@@ -15,7 +16,6 @@ Widget::Widget(QWidget *parent) :
 void Widget::timeout1_slot()
 {
     time1=time1.currentTime();
-    time1=time1.addMSecs(1000);
     ui->currenttime->setText(time1.toString("hh:mm:ss"));
 }
 void Widget::timeout_slot()
